@@ -10,6 +10,8 @@
 #define __ZGGame__MJ__
 
 #include <stdio.h>
+#include <iostream>
+
 using namespace std;
 
 //类型
@@ -23,9 +25,9 @@ typedef enum{
 class MJ
 {
 public:
-    MJ init(MJType,int);    //初始化
-    MJType getMJType();     //获取类型
-    int getNUM();           //获取NUM
+    MJ *init(MJType _type,int _num);        //初始化
+    MJType getMJType();                     //获取类型
+    int getNUM();                           //获取NUM
 
 private:
     string *name;
