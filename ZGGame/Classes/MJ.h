@@ -12,6 +12,7 @@
 #include <stdio.h>
 using namespace std;
 
+//类型
 typedef enum{
     MJType_Wan,
     MJType_Tiao,
@@ -22,8 +23,15 @@ typedef enum{
 class MJ
 {
 public:
+    MJ init(MJType,int);    //初始化
+    MJType getMJType();     //获取类型
+    int getNUM();           //获取NUM
+
+private:
     string *name;
     MJType  type;
+    int      NUM;
+    
     
 };
 
