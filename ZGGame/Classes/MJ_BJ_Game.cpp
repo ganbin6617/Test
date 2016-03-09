@@ -23,3 +23,8 @@ void MJ_BJ_Game::start()
     gainMJ();
 
 }
+
+void MJ_BJ_Game::getMJGroup()
+{
+//    mjGroup = MJGroup::create_BJ();
+}

@@ -10,11 +10,14 @@
 #define __ZGGame__MJ_BJ_Game__
 
 #include <stdio.h>
+//#include "MJGroup.h"
 
 class MJ_BJ_Game
 {
     
 private:
+    
+//    MJGroup *mjGroup;
     
     //准备
     void getMJGroup();
