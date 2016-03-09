@@ -11,6 +11,8 @@
 
 void MJ_BJ_Game::start()
 {
+    //准备
+    getMJGroup();
     //洗牌
     washMJ();
     //码牌

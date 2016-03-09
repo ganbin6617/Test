@@ -10,7 +10,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		28B61D2D1C8F09A60071E256 /* MJ_BJ_group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B61D2B1C8F09A60071E256 /* MJ_BJ_group.cpp */; };
 		28B61D301C8F14D10071E256 /* MJGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B61D2E1C8F14D10071E256 /* MJGroup.cpp */; };
 		28B61D331C8F15040071E256 /* MJ_BJ_Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B61D311C8F15040071E256 /* MJ_BJ_Game.cpp */; };
 		41E34A81ACA2320B6C76C445 /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
@@ -71,8 +70,6 @@
 		1D6058910D05DD3D006BFB54 /* ZGGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZGGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28B61D2B1C8F09A60071E256 /* MJ_BJ_group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MJ_BJ_group.cpp; sourceTree = "<group>"; };
-		28B61D2C1C8F09A60071E256 /* MJ_BJ_group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJ_BJ_group.h; sourceTree = "<group>"; };
 		28B61D2E1C8F14D10071E256 /* MJGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MJGroup.cpp; sourceTree = "<group>"; };
 		28B61D2F1C8F14D10071E256 /* MJGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJGroup.h; sourceTree = "<group>"; };
 		28B61D311C8F15040071E256 /* MJ_BJ_Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MJ_BJ_Game.cpp; sourceTree = "<group>"; };
@@ -315,8 +312,6 @@
 		6BE328261C8EC204006223CB /* bjMJ */ = {
 			isa = PBXGroup;
 			children = (
-				28B61D2B1C8F09A60071E256 /* MJ_BJ_group.cpp */,
-				28B61D2C1C8F09A60071E256 /* MJ_BJ_group.h */,
 				28B61D311C8F15040071E256 /* MJ_BJ_Game.cpp */,
 				28B61D321C8F15040071E256 /* MJ_BJ_Game.h */,
 			);
@@ -463,7 +458,6 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				6BE3282A1C8EC5C7006223CB /* MJ.cpp in Sources */,
-				28B61D2D1C8F09A60071E256 /* MJ_BJ_group.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,8 +16,8 @@ class MJ_BJ_Game
     
 private:
     
-    
-    
+    //准备
+    void getMJGroup();
     //洗牌
     void washMJ();
     //码牌

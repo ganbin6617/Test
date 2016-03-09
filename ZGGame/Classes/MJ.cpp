@@ -10,25 +10,20 @@
 
 #pragma 实例化
 
-//初始化
-MJ *MJ::init(MJType _type, int _num)
+static MJ *create(MJType _type, int _num)
 {
-    MJ *mj = new MJ();
-    mj->type = _type;
-    mj->NUM = _num;
-    return mj;
-}
-
-//获取类型
-MJType MJ::getMJType()
-{
-    return this->type;
-}
-
-//获取NUM
-int MJ::getNUM()
-{
-    return this->NUM;
+    MJ *pRet = new MJ(_type, _num);
+    if (pRet && pRet->init())
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = NULL;
+        return NULL;
+    }
 }
 
 #pragma mark - 内部方法
