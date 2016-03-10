@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "MJ_BJ_Game.h"
 
 USING_NS_CC;
 
@@ -35,5 +36,8 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
+    MJ_BJ_Game *mj_bj_Game = MJ_BJ_Game::create();
+    mj_bj_Game->start();
+    
     return true;
 }

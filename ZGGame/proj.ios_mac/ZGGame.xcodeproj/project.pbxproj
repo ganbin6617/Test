@@ -52,6 +52,9 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		68DF4CD48FF618773F3C8241 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4A434CB0497EB05B450757 /* libcocos2d iOS.a */; };
+		6BDA8AE91C914C0400C9B2DF /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA8AE71C914C0400C9B2DF /* Player.cpp */; };
+		6BDA8AEC1C914C1200C9B2DF /* AIPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA8AEA1C914C1200C9B2DF /* AIPlayer.cpp */; };
+		6BDA8AEF1C914C2500C9B2DF /* UserPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA8AED1C914C2500C9B2DF /* UserPlayer.cpp */; };
 		6BE3282A1C8EC5C7006223CB /* MJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6BE328281C8EC5C7006223CB /* MJ.cpp */; };
 		7AB94C6A95BCF2B4CA3DF1DC /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -117,6 +120,12 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
+		6BDA8AE71C914C0400C9B2DF /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		6BDA8AE81C914C0400C9B2DF /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		6BDA8AEA1C914C1200C9B2DF /* AIPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIPlayer.cpp; sourceTree = "<group>"; };
+		6BDA8AEB1C914C1200C9B2DF /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
+		6BDA8AED1C914C2500C9B2DF /* UserPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserPlayer.cpp; sourceTree = "<group>"; };
+		6BDA8AEE1C914C2500C9B2DF /* UserPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPlayer.h; sourceTree = "<group>"; };
 		6BE328281C8EC5C7006223CB /* MJ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MJ.cpp; sourceTree = "<group>"; };
 		6BE328291C8EC5C7006223CB /* MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJ.h; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -331,6 +340,12 @@
 				28B61D2F1C8F14D10071E256 /* MJGroup.h */,
 				28B61D351C9064D60071E256 /* other.cpp */,
 				28B61D361C9064D60071E256 /* other.h */,
+				6BDA8AE71C914C0400C9B2DF /* Player.cpp */,
+				6BDA8AE81C914C0400C9B2DF /* Player.h */,
+				6BDA8AEA1C914C1200C9B2DF /* AIPlayer.cpp */,
+				6BDA8AEB1C914C1200C9B2DF /* AIPlayer.h */,
+				6BDA8AED1C914C2500C9B2DF /* UserPlayer.cpp */,
+				6BDA8AEE1C914C2500C9B2DF /* UserPlayer.h */,
 			);
 			name = MJ;
 			sourceTree = "<group>";
@@ -460,7 +475,10 @@
 				28B61D301C8F14D10071E256 /* MJGroup.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				6BDA8AEC1C914C1200C9B2DF /* AIPlayer.cpp in Sources */,
+				6BDA8AE91C914C0400C9B2DF /* Player.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				6BDA8AEF1C914C2500C9B2DF /* UserPlayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				6BE3282A1C8EC5C7006223CB /* MJ.cpp in Sources */,
 				28B61D371C9064D60071E256 /* other.cpp in Sources */,

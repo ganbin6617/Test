@@ -18,22 +18,34 @@ USING_NS_CC;
 class MJGroup : public Ref
 {
 public:
+    __Array *mjList;
+
     //洗牌
     void wash();
+
     
-#pragma mark ----
-    
-    MJGroup();
-    virtual bool init();
+#pragma mark -create
+    MJGroup(){};
+    virtual bool init(){return 1;};
+    CREATE_FUNC(MJGroup);
+#pragma mark -other create
     
     bool init_BJ();
     static MJGroup *create_BJ();
-    
-    CREATE_FUNC(MJGroup);
 private:
-    __Array *mjList;
     
     void addType(MJType type);
+    
+    
+public:
+    
+    
+    //显示
+    static void show(__Array *);
+    static void showm(MJ *);
+    
+    //整理
+    static void sort(__Array *);
 };
 
 #endif /* defined(__ZGGame__MJGroup__) */

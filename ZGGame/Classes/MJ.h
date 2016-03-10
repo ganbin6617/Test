@@ -18,35 +18,33 @@ USING_NS_CC;
 
 //类型
 typedef enum{
-    MJType_Wang,
-    MJType_Tiao,
-    MJType_Tong,
-    MJType_Feng
+    MJType_Wang = 0,
+    MJType_Tiao = 1,
+    MJType_Tong = 2,
+    MJType_Feng = 3
 }MJType;
 
 class MJ : public Ref
 {
 public:
+    int     tnum;
     
     MJType getMJType(){return this->type;};     //获取类型
     int getNUM(){return this->NUM;};            //获取NUM
-//string *getName();
+    __String *getName();
     
 #pragma ----
     
     MJ(){};
-    MJ(MJType _type,int _num){this->type = _type; this->NUM = _num;};
-    ~MJ(){};
     virtual bool init(){return 1;};
-    
+    CREATE_FUNC(MJ);
+
 public:
     static MJ *create(MJType _type, int _num);
-    CREATE_FUNC(MJ);
+    
 private:
-    string *name;
     MJType  type;
     int      NUM;
-    
     
 };
 
