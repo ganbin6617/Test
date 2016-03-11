@@ -8,8 +8,18 @@
 
 #include "AIPlayer.h"
 
+bool AIPlayer::init (){
+    isAI = true;
+    delayTime = 1;
+    return Player::init();
+};
 
-void AIPlayer::think()
+void AIPlayer::think(MJAction action)
 {
     
+}
+
+void AIPlayer::outMJ()
+{
+
 }

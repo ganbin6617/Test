@@ -8,6 +8,7 @@
 
 #include "MJGroup.h"
 
+
 MJGroup *MJGroup::create_BJ()
 {
     MJGroup *pRet = MJGroup::create();
@@ -17,16 +18,16 @@ MJGroup *MJGroup::create_BJ()
 
 bool MJGroup::init_BJ()
 {
-//    if (this->mjList->data!= NULL) {
-//        this->mjList->removeAllObjects();
+//    if (mjList!= NULL) {
+//        mjList->removeAllObjects();
 //    }
 //    else
     {
-        this->mjList = __Array::create();
+       setMjList(__Array::create());
     }
-    this->addType(MJType_Wang);
-    this->addType(MJType_Tiao);
-    this->addType(MJType_Tong);
+    addType(MJType_Wang);
+    addType(MJType_Tiao);
+    addType(MJType_Tong);
     return this;
 }
 

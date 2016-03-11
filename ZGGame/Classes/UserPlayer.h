@@ -16,9 +16,18 @@
 class UserPlayer : public Player
 {
 public:
-    virtual void think();
+    virtual void think(MJAction action);
+    virtual void outMJ();
     
+#pragma mark - create
+    virtual bool init();
+    UserPlayer(){};
+    CREATE_FUNC(UserPlayer);
     
+    static bool create(__Dictionary *dic);
+    
+private:
+    __Dictionary *info;
 };
 
 #endif /* defined(__ZGGame__UserPlayer__) */

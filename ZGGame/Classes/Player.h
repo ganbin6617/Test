@@ -13,27 +13,33 @@
 #include <cocos/cocos2d.h>
 USING_NS_CC;
 
+typedef enum {
+    MJAction_Peng,
+    MJAction_Chi,
+    MJAction_Hu,
+    MJAction_Gang,
+    MJAction_Out,
+}MJAction;
+
 class Player : public Ref
 {
 public:
-    virtual bool init ()
-    {
-        isZ = false;
-        handMJList = __Array::create();
-        disCardList = __Array::create();
+    virtual bool init ();
+    virtual void think(MJAction action){};
+    virtual void outMJ(){};
     
-        return 1;
-    }
-    
-    virtual void think() = 0;
-    
+    CREATE_FUNC(Player);
     
 public:
     bool isZ;                   //庄
+    int delayTime;              //延时
+    bool isAI;                  
     
-    __Array *handMJList;        //手牌
-    __Array *disCardList;       //弃牌堆
+//    __Array *handMJList;        //手牌
+    CC_SYNTHESIZE_RETAIN(__Array *, handMJList, HandMJList);
     
+//    __Array *disCardList;       //弃牌堆
+    CC_SYNTHESIZE_RETAIN(__Array *, disCardList, DisCardList)
 };
 
 #endif /* defined(__ZGGame__Player__) */

@@ -35,7 +35,6 @@ public:
     
 #pragma ----
     
-    MJ(){};
     virtual bool init(){return 1;};
     CREATE_FUNC(MJ);
 

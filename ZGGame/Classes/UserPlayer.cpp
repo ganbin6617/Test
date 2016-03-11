@@ -8,8 +8,27 @@
 
 #include "UserPlayer.h"
 
+bool UserPlayer::init(){
+    isAI = false;
+    delayTime = 10;
+    
+    return Player::init();
+};
 
-void UserPlayer::think()
+bool UserPlayer::create(__Dictionary *dic)
+{
+    UserPlayer *player = UserPlayer::create();
+    player->info = __Dictionary::createWithDictionary(dic);
+    return player;
+}
+
+void UserPlayer::think(MJAction action)
 {
     
 }
+
+void UserPlayer::outMJ()
+{
+    
+}
+

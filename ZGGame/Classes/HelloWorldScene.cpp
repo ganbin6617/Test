@@ -1,9 +1,10 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "MJ_BJ_Game.h"
+#include "cocos2d.h"
 
 USING_NS_CC;
+using namespace ui;
 
 using namespace cocostudio::timeline;
 
@@ -36,8 +37,26 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
-    MJ_BJ_Game *mj_bj_Game = MJ_BJ_Game::create();
-    mj_bj_Game->start();
+    MJ_BJ_Game *_mj_bj_Game = MJ_BJ_Game::create();
     
+    setMj_bj_Game(_mj_bj_Game);
+    this->getMj_bj_Game()->start();
+    
+    Button* buttonPlay = Button::create();
+    buttonPlay->setTouchEnabled(true);
+    buttonPlay->setTitleText("点击------");
+    buttonPlay->setPosition(Point(100,100));
+    buttonPlay->addClickEventListener(CC_CALLBACK_0(HelloWorld::click, this));
+    this->addChild(buttonPlay);
+
     return true;
 }
+
+void HelloWorld::click()
+{
+    CCLOG("sssss");
+    
+    this->getMj_bj_Game()->test();
+}
+
+

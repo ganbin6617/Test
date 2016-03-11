@@ -18,15 +18,15 @@ USING_NS_CC;
 class MJGroup : public Ref
 {
 public:
-    __Array *mjList;
-
+//    __Array *mjList;
+    CC_SYNTHESIZE_RETAIN(__Array *, mjList, MjList);
+    
     //洗牌
     void wash();
 
     
 #pragma mark -create
-    MJGroup(){};
-    virtual bool init(){return 1;};
+    bool init(){return 1;};
     CREATE_FUNC(MJGroup);
 #pragma mark -other create
     

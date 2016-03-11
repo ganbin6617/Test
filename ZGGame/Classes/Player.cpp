@@ -7,3 +7,13 @@
 //
 
 #include "Player.h"
+
+
+bool Player::init ()
+{
+    isZ = false;
+    setHandMJList(__Array::create());
+    setDisCardList(__Array::create());
+    
+    return true;
+}

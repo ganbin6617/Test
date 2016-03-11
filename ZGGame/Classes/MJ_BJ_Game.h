@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "MJGroup.h"
+#include "AIPlayer.h"
+#include "UserPlayer.h"
 
 #define GAME_PLAYER_COUNT   4
 #define GAME_MJ_COUNT       13
@@ -21,15 +23,22 @@ public:
     //开始
     void start();
     
+    
+    void test();
+    
 #pragma mark -create
-    virtual bool init(){return 1;};
-    MJ_BJ_Game(){};
+    bool init(){return 1;};
     CREATE_FUNC(MJ_BJ_Game);
 private:
+//    MJGroup *mjGroup;           //牌组
+    CC_SYNTHESIZE_RETAIN(MJGroup*, mjGroup, MjGroup);
     
-    MJGroup *mjGroup;
-    __Array *playerList;
-    int zI;
+//    __Array *playerList;        //玩家
+    CC_SYNTHESIZE_RETAIN(__Array *,playerList,PlayerList);
+    int zI;                     //庄
+//    UserPlayer *userPlayer;
+    CC_SYNTHESIZE_RETAIN(UserPlayer*, userPlayer,UserPlayer);
+    
     
     //玩家
     void readyPlayers();
@@ -46,6 +55,24 @@ private:
     
     //action
     void action();
+    
+    //碰
+    bool canPeng(Player *player, MJ *mj);
+    //吃
+    bool canChi(Player *player, MJ *mj);
+    //胡
+    bool canHu(Player *player, MJ *mj);
+    //杠
+    bool canGang(Player *player, MJ *mj);
+    //遍历
+    void each(__Array, SEL_CallFunc, MJ *mj);
+    
+    
+    //定时器
+//    void schedule(int);
+    
+    //下一位
+    int nextPlayerIndex(int);
 
 };
 

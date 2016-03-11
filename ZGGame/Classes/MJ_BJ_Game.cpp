@@ -7,11 +7,10 @@
 //
 
 #include "MJ_BJ_Game.h"
-#include "AIPlayer.h"
-#include "UserPlayer.h"
+
 
 void MJ_BJ_Game::start()
-{
+{    
     //人
     readyPlayers();
     //准备
@@ -31,20 +30,26 @@ void MJ_BJ_Game::start()
 
 void MJ_BJ_Game::readyPlayers()
 {
-    playerList = __Array::create();
+    setPlayerList(__Array::create());
     
-    for (int i = 0; i<GAME_PLAYER_COUNT; i++) {
+    Player::create();
+    
+    setUserPlayer(UserPlayer::create());
+    getPlayerList()->addObject(userPlayer);
+    
+    for (int i = 1; i<GAME_PLAYER_COUNT; i++) {
         AIPlayer *aiPlayer = AIPlayer::create();
-        playerList->addObject(aiPlayer);
+        getPlayerList()->addObject(aiPlayer);
     }
-    
 }
 
+//准备
 void MJ_BJ_Game::getMJGroup()
 {
-    mjGroup = MJGroup::create_BJ();
+    setMjGroup(MJGroup::create_BJ());
 }
 
+//洗牌
 void MJ_BJ_Game::washMJ()
 {
     mjGroup->wash();
@@ -58,8 +63,10 @@ void MJ_BJ_Game::buildMJ()
 void MJ_BJ_Game::dice()
 {
     zI = rand()%GAME_PLAYER_COUNT;
+    zI = 3;
 }
 
+//抓牌
 void MJ_BJ_Game::gainMJ()
 {
     for (int i = 0; i<GAME_PLAYER_COUNT; i++) {
@@ -67,34 +74,111 @@ void MJ_BJ_Game::gainMJ()
         Player *player = (Player *)playerList->getObjectAtIndex(i);
         
         for (int j = 0; j<GAME_MJ_COUNT; j++) {
-            player->handMJList->addObject(mjGroup->mjList->getObjectAtIndex(j));
+            player->getHandMJList()->addObject(mjGroup->getMjList()->getObjectAtIndex(j));
         }
-        mjGroup->mjList->removeObjectsInArray(player->handMJList);
-        MJGroup::sort(player->handMJList);
+        mjGroup->getMjList()->removeObjectsInArray(player->getHandMJList());
+        MJGroup::sort(player->getHandMJList());
     }
+    
+//    for (int i = 0; i<4; i++) {
+//        Player *player = (Player *)playerList->getObjectAtIndex(i);
+//        MJGroup::show(player->handMJList);
+//    }
+    
+    MJGroup::show(userPlayer->getHandMJList());
+
 }
 
 
 //action
 void MJ_BJ_Game::action()
 {
-    while (mjGroup->mjList->count()>0) {
+    int index = zI;
+
+//    while (mjGroup->getMjList()->count()>0){
         
-        Player *player = (Player *)playerList->getObjectAtIndex(zI);
+        Player *player = (Player *)playerList->getObjectAtIndex(index);
+        
         
         //显示
         cout<<"---------";
-        MJGroup::show(player->handMJList);
+        MJGroup::show(player->getHandMJList());
         
         //抓牌
 
-        MJGroup::showm((MJ*)mjGroup->mjList->getObjectAtIndex(0));
+        MJGroup::showm((MJ*)mjGroup->getMjList()->getObjectAtIndex(0));
         
-        player->handMJList->addObject(mjGroup->mjList->getObjectAtIndex(0));
-        mjGroup->mjList->removeObjectAtIndex(0);
+        player->getHandMJList()->addObject(mjGroup->getMjList()->getObjectAtIndex(0));
+        mjGroup->getMjList()->removeObjectAtIndex(0);
         
         
-        player->think();
+        player->think(MJAction_Out);
+
         
+        /*
+        while (player->getHandMJList()->count() == GAME_MJ_COUNT) {
+            
+            
+            for (int i = nextPlayerIndex(index); i<index; ) {
+                
+                Player *p = (Player *)playerList->getObjectAtIndex(i);
+                
+                canHu(p, NULL);
+                
+                i = nextPlayerIndex(i);
+            }
+            
+            index = nextPlayerIndex(index);
+
+            break;
+        }
+        */
+//    }
+}
+
+void MJ_BJ_Game::test()
+{
+    if (userPlayer->getHandMJList()->count()>GAME_MJ_COUNT) {
+        userPlayer->getHandMJList()->removeLastObject();
     }
+}
+
+#pragma mark -
+
+
+//碰
+bool MJ_BJ_Game::canPeng(Player *player, MJ *mj)
+{
+    
+}
+
+//吃
+bool MJ_BJ_Game::canChi(Player *player, MJ *mj)
+{
+    
+}
+
+//胡
+bool MJ_BJ_Game::canHu(Player *player, MJ *mj)
+{
+    
+}
+
+//杠
+bool MJ_BJ_Game::canGang(Player *player, MJ *mj)
+{
+}
+
+void MJ_BJ_Game::each(__Array, SEL_CallFunc, MJ *mj)
+{
+    
+}
+
+int MJ_BJ_Game::nextPlayerIndex(int index)
+{
+    int nIndex = index;
+    if (nIndex > GAME_PLAYER_COUNT-1) {
+        nIndex = 0;
+    }
+    return nIndex;
 }

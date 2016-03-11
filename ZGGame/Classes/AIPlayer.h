@@ -16,11 +16,11 @@ class AIPlayer : public Player
 {
 public:
     
-    virtual void think();
-    
+    virtual void think(MJAction);
+    virtual void outMJ();
+
 #pragma mark - create
-    virtual bool init (){return Player::init();};
-    AIPlayer(){};
+    virtual bool init();
     CREATE_FUNC(AIPlayer);
     
 private:

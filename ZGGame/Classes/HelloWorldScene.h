@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "MJ_BJ_Game.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -14,6 +15,11 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    void click();
+    
+//    MJ_BJ_Game *mj_bj_Game;
+    CC_SYNTHESIZE_RETAIN(MJ_BJ_Game*, mj_bj_Game, Mj_bj_Game);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
