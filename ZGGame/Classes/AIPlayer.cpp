@@ -16,7 +16,7 @@ bool AIPlayer::init (){
 
 void AIPlayer::think(MJAction action)
 {
-    
+    (getDelegate()->*getM_pfnSelectior())(1, 1);
 }
 
 void AIPlayer::outMJ()

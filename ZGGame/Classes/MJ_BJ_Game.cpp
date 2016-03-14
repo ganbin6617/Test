@@ -25,20 +25,21 @@ void MJ_BJ_Game::start()
     gainMJ();
 
     //action
-//    action();
+    action(zI);
 }
 
 void MJ_BJ_Game::readyPlayers()
 {
     setPlayerList(__Array::create());
-    
-    Player::create();
-    
-    setUserPlayer(UserPlayer::create());
+        
+    setUserPlayer(Player::create());
     getPlayerList()->addObject(userPlayer);
     
     for (int i = 1; i<GAME_PLAYER_COUNT; i++) {
-        AIPlayer *aiPlayer = AIPlayer::create();
+        Player *aiPlayer = Player::create();
+        aiPlayer->setIsAI(true);
+        aiPlayer->setDelegate(this);
+        aiPlayer->setM_pfnSelectior(think_selector(MJ_BJ_Game::callBack));
         getPlayerList()->addObject(aiPlayer);
     }
 }
@@ -91,12 +92,14 @@ void MJ_BJ_Game::gainMJ()
 
 
 //action
-void MJ_BJ_Game::action()
+void MJ_BJ_Game::action(int index)
 {
-    int index = zI;
-
 //    while (mjGroup->getMjList()->count()>0){
-        
+    if (mjGroup->getMjList()->count() <=0 ) {
+        cout<<"荒";
+        return;
+    }
+    
         Player *player = (Player *)playerList->getObjectAtIndex(index);
         
         
@@ -112,7 +115,7 @@ void MJ_BJ_Game::action()
         mjGroup->getMjList()->removeObjectAtIndex(0);
         
         
-        player->think(MJAction_Out);
+        if(player->isAI)player->think(MJAction_Out, index);
 
         
         /*
@@ -136,10 +139,24 @@ void MJ_BJ_Game::action()
 //    }
 }
 
+void MJ_BJ_Game::callBack(int zi, int index)
+{
+    CCLOG("%zd, %zd",zi, index);
+    Player *player = (Player *)playerList->getObjectAtIndex(zi);
+    player->getHandMJList()->removeObjectAtIndex(index);
+    
+    int _nextZi = nextPlayerIndex(zi);
+    
+    action(_nextZi);
+}
+
 void MJ_BJ_Game::test()
 {
     if (userPlayer->getHandMJList()->count()>GAME_MJ_COUNT) {
         userPlayer->getHandMJList()->removeLastObject();
+        
+        int _nextZi = nextPlayerIndex(0);
+        action(_nextZi);
     }
 }
 
@@ -177,6 +194,7 @@ void MJ_BJ_Game::each(__Array, SEL_CallFunc, MJ *mj)
 int MJ_BJ_Game::nextPlayerIndex(int index)
 {
     int nIndex = index;
+    nIndex ++;
     if (nIndex > GAME_PLAYER_COUNT-1) {
         nIndex = 0;
     }

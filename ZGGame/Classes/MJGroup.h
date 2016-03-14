@@ -46,6 +46,12 @@ public:
     
     //整理
     static void sort(__Array *);
+    
+    //判断牌
+private:
+    
+    //分割
+    __Array *sqlit(__Array *);
 };
 
 #endif /* defined(__ZGGame__MJGroup__) */

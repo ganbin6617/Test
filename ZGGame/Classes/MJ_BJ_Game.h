@@ -11,8 +11,7 @@
 
 #include <stdio.h>
 #include "MJGroup.h"
-#include "AIPlayer.h"
-#include "UserPlayer.h"
+#include "Player.h"
 
 #define GAME_PLAYER_COUNT   4
 #define GAME_MJ_COUNT       13
@@ -26,6 +25,9 @@ public:
     
     void test();
     
+    // 回调
+    void callBack(int zi, int index);
+    
 #pragma mark -create
     bool init(){return 1;};
     CREATE_FUNC(MJ_BJ_Game);
@@ -37,7 +39,7 @@ private:
     CC_SYNTHESIZE_RETAIN(__Array *,playerList,PlayerList);
     int zI;                     //庄
 //    UserPlayer *userPlayer;
-    CC_SYNTHESIZE_RETAIN(UserPlayer*, userPlayer,UserPlayer);
+    CC_SYNTHESIZE_RETAIN(Player*, userPlayer,UserPlayer);
     
     
     //玩家
@@ -54,7 +56,7 @@ private:
     void gainMJ();
     
     //action
-    void action();
+    void action(int);
     
     //碰
     bool canPeng(Player *player, MJ *mj);

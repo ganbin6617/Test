@@ -116,3 +116,20 @@ void MJGroup::sort(__Array *arr)
         ++low;                  //修改low值,后移一位
     }
 }
+
+#pragma mark - 
+
+//分割
+__Array *MJGroup::sqlit(__Array *array)
+{
+    __Array *temp = __Array::create();
+    
+    Ref *obj = NULL;
+    CCARRAY_FOREACH(array, obj)
+    {
+        MJ *mj = static_cast<MJ*>(obj);
+        
+        
+    }
+    
+}
